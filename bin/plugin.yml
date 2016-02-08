@@ -1,0 +1,14 @@
+name: AlphaCrates
+main: me.alphagladiator.crates.Main
+version: 1.0
+author: AlphaGladiator
+description: A crates plugin custom for AlphaSurvival.
+commands:
+  setcrate:
+    description: Sets a crate at your location.
+    aliases: [scrate, setc]
+    usage: /<command>
+  givekey:
+    description: Gives the specified player a key of the specified type.
+    aliases: [gkey]
+    usage: /<command>
