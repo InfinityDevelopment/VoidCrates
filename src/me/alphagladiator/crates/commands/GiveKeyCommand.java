@@ -45,29 +45,29 @@ public class GiveKeyCommand implements CommandExecutor, Listener{
 					target.sendMessage(StringStorage.act + ChatColor.GREEN + "You were given a Common Key by " + ChatColor.AQUA + sender.getName() + ChatColor.GREEN + "!");
 					sender.sendMessage(StringStorage.act + "You gave " + ChatColor.AQUA + target.getName() + ChatColor.RESET + " a Common Key!");
 					return true;
-				}else if(type.equalsIgnoreCase("VIP")){
+				}else if(type.equalsIgnoreCase("MVP")){
 					ItemStack commonKey = new ItemStack(Material.TRIPWIRE_HOOK);
 					ItemMeta ckmeta = commonKey.getItemMeta();
-					ckmeta.setDisplayName(ChatColor.BLUE + "VIP Key");
+					ckmeta.setDisplayName(ChatColor.BLUE + "MVP Key");
 					List<String> lore = new ArrayList<String>();
 					lore.add(ChatColor.GREEN + "A crate key!");
 					ckmeta.setLore(lore);
 					commonKey.setItemMeta(ckmeta);
 					target.getInventory().addItem(commonKey);
-					target.sendMessage(StringStorage.act + ChatColor.GREEN + "You were given a VIP Key by " + ChatColor.AQUA + sender.getName() + ChatColor.GREEN + "!");
-					sender.sendMessage(StringStorage.act + "You gave " + ChatColor.AQUA + target.getName() + ChatColor.RESET + " a VIP Key!");
+					target.sendMessage(StringStorage.act + ChatColor.GREEN + "You were given a MVP Key by " + ChatColor.AQUA + sender.getName() + ChatColor.GREEN + "!");
+					sender.sendMessage(StringStorage.act + "You gave " + ChatColor.AQUA + target.getName() + ChatColor.RESET + " a MVP Key!");
 					return true;
-				}else if(type.equalsIgnoreCase("VIP+")){
+				}else if(type.equalsIgnoreCase("MVP+")){
 					ItemStack commonKey = new ItemStack(Material.TRIPWIRE_HOOK);
 					ItemMeta ckmeta = commonKey.getItemMeta();
-					ckmeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Key");
+					ckmeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Key");
 					List<String> lore = new ArrayList<String>();
 					lore.add(ChatColor.GREEN + "A crate key!");
 					ckmeta.setLore(lore);
 					commonKey.setItemMeta(ckmeta);
 					target.getInventory().addItem(commonKey);
-					target.sendMessage(StringStorage.act + ChatColor.GREEN + "You were given a VIP+ Key by " + ChatColor.AQUA + sender.getName() + ChatColor.GREEN + "!");
-					sender.sendMessage(StringStorage.act + "You gave " + ChatColor.AQUA + target.getName() + ChatColor.RESET + " a VIP+ Key!");
+					target.sendMessage(StringStorage.act + ChatColor.GREEN + "You were given a MVP+ Key by " + ChatColor.AQUA + sender.getName() + ChatColor.GREEN + "!");
+					sender.sendMessage(StringStorage.act + "You gave " + ChatColor.AQUA + target.getName() + ChatColor.RESET + " a MVP+ Key!");
 					return true;
 				}else if(type.equalsIgnoreCase("Mythical")){
 					ItemStack commonKey = new ItemStack(Material.TRIPWIRE_HOOK);

@@ -20,107 +20,107 @@ public class ItemBank {
 		itemList.add(new ItemStack(Material.LOG, 32));
 		itemList.add(new ItemStack(Material.COOKED_BEEF, 16));
 		
-		ItemStack vipKey = new ItemStack(Material.TRIPWIRE_HOOK);
-		ItemMeta vkmeta = vipKey.getItemMeta();
-		vkmeta.setDisplayName(ChatColor.BLUE + "VIP Key");
+		ItemStack MVPKey = new ItemStack(Material.TRIPWIRE_HOOK);
+		ItemMeta vkmeta = MVPKey.getItemMeta();
+		vkmeta.setDisplayName(ChatColor.BLUE + "MVP Key");
 		List<String> lore = new ArrayList<String>();
 		lore.add(ChatColor.GREEN + "A crate key!");
 		vkmeta.setLore(lore);
-		vipKey.setItemMeta(vkmeta);
-		itemList.add(vipKey);
+		MVPKey.setItemMeta(vkmeta);
+		itemList.add(MVPKey);
 		
 		return itemList;
 	}
 	
-	public static List<ItemStack> vipList(){
+	public static List<ItemStack> MVPList(){
 		List<ItemStack> itemList = new ArrayList<ItemStack>();
 		
-		ItemStack vipHelmet = new ItemStack(Material.IRON_HELMET);
-		ItemMeta hmeta = vipHelmet.getItemMeta();
-		hmeta.setDisplayName(ChatColor.BLUE + "VIP Helmet");
-		vipHelmet.setItemMeta(hmeta);
-		vipHelmet.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
-		itemList.add(vipHelmet);
+		ItemStack MVPHelmet = new ItemStack(Material.IRON_HELMET);
+		ItemMeta hmeta = MVPHelmet.getItemMeta();
+		hmeta.setDisplayName(ChatColor.BLUE + "MVP Helmet");
+		MVPHelmet.setItemMeta(hmeta);
+		MVPHelmet.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+		itemList.add(MVPHelmet);
 		
-		ItemStack vipChest = new ItemStack(Material.IRON_CHESTPLATE);
-		ItemMeta cMeta = vipChest.getItemMeta();
-		cMeta.setDisplayName(ChatColor.BLUE + "VIP Chestplate");
-		vipChest.setItemMeta(cMeta);
-		vipChest.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
-		itemList.add(vipChest);
+		ItemStack MVPChest = new ItemStack(Material.IRON_CHESTPLATE);
+		ItemMeta cMeta = MVPChest.getItemMeta();
+		cMeta.setDisplayName(ChatColor.BLUE + "MVP Chestplate");
+		MVPChest.setItemMeta(cMeta);
+		MVPChest.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+		itemList.add(MVPChest);
 		
-		ItemStack vipLegs = new ItemStack(Material.IRON_LEGGINGS);
-		ItemMeta lmeta = vipLegs.getItemMeta();
-		lmeta.setDisplayName(ChatColor.BLUE + "VIP Leggings");
-		vipLegs.setItemMeta(lmeta);
-		vipLegs.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
-		itemList.add(vipLegs);
+		ItemStack MVPLegs = new ItemStack(Material.IRON_LEGGINGS);
+		ItemMeta lmeta = MVPLegs.getItemMeta();
+		lmeta.setDisplayName(ChatColor.BLUE + "MVP Leggings");
+		MVPLegs.setItemMeta(lmeta);
+		MVPLegs.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+		itemList.add(MVPLegs);
 		
-		ItemStack vipBoots = new ItemStack(Material.IRON_BOOTS);
-		ItemMeta bmeta = vipBoots.getItemMeta();
-		bmeta.setDisplayName(ChatColor.BLUE + "VIP Boots");
-		vipBoots.setItemMeta(bmeta);
-		vipBoots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
-		itemList.add(vipBoots);
+		ItemStack MVPBoots = new ItemStack(Material.IRON_BOOTS);
+		ItemMeta bmeta = MVPBoots.getItemMeta();
+		bmeta.setDisplayName(ChatColor.BLUE + "MVP Boots");
+		MVPBoots.setItemMeta(bmeta);
+		MVPBoots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
+		itemList.add(MVPBoots);
 		
-		itemList.add(new ItemStack(Material.IRON_INGOT, 9));
+		itemList.add(new ItemStack(Material.DIAMOND, 3));
 		itemList.add(new ItemStack(Material.COOKED_BEEF, 32));
 		
-		ItemStack vip2Key = new ItemStack(Material.TRIPWIRE_HOOK);
-		ItemMeta vk2meta = vip2Key.getItemMeta();
-		vk2meta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Key");
+		ItemStack MVP2Key = new ItemStack(Material.TRIPWIRE_HOOK);
+		ItemMeta vk2meta = MVP2Key.getItemMeta();
+		vk2meta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Key");
 		List<String> lore = new ArrayList<String>();
 		lore.add(ChatColor.GREEN + "A crate key!");
 		vk2meta.setLore(lore);
-		vip2Key.setItemMeta(vk2meta);
-		itemList.add(vip2Key);
+		MVP2Key.setItemMeta(vk2meta);
+		itemList.add(MVP2Key);
 		
 		return itemList;
 	}
 	
-	public static List<ItemStack> vip2List(){
+	public static List<ItemStack> MVP2List(){
 		List<ItemStack> itemList = new ArrayList<ItemStack>();
 		
-		ItemStack vipHelmet = new ItemStack(Material.IRON_HELMET);
-		ItemMeta hMeta = vipHelmet.getItemMeta();
-		hMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Helmet");
-		vipHelmet.setItemMeta(hMeta);
-		vipHelmet.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
-		itemList.add(vipHelmet);
+		ItemStack MVPHelmet = new ItemStack(Material.DIAMOND_HELMET);
+		ItemMeta hMeta = MVPHelmet.getItemMeta();
+		hMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Helmet");
+		MVPHelmet.setItemMeta(hMeta);
+		MVPHelmet.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+		itemList.add(MVPHelmet);
 		
-		ItemStack vipChest = new ItemStack(Material.IRON_CHESTPLATE);
-		ItemMeta cMeta = vipChest.getItemMeta();
-		cMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Chestplate");
-		vipChest.setItemMeta(cMeta);
-		vipChest.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
-		itemList.add(vipChest);
+		ItemStack MVPChest = new ItemStack(Material.DIAMOND_CHESTPLATE);
+		ItemMeta cMeta = MVPChest.getItemMeta();
+		cMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Chestplate");
+		MVPChest.setItemMeta(cMeta);
+		MVPChest.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+		itemList.add(MVPChest);
 		
-		ItemStack vipLegs = new ItemStack(Material.IRON_LEGGINGS);
-		ItemMeta lMeta = vipLegs.getItemMeta();
-		lMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Leggings");
-		vipLegs.setItemMeta(lMeta);
-		vipLegs.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
-		itemList.add(vipLegs);
+		ItemStack MVPLegs = new ItemStack(Material.DIAMOND_LEGGINGS);
+		ItemMeta lMeta = MVPLegs.getItemMeta();
+		lMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Leggings");
+		MVPLegs.setItemMeta(lMeta);
+		MVPLegs.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+		itemList.add(MVPLegs);
 		
-		ItemStack vipBoots = new ItemStack(Material.IRON_BOOTS);
-		ItemMeta bMeta = vipBoots.getItemMeta();
-		bMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Boots");
-		vipBoots.setItemMeta(bMeta);
-		vipBoots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 3);
-		itemList.add(vipBoots);
+		ItemStack MVPBoots = new ItemStack(Material.DIAMOND_BOOTS);
+		ItemMeta bMeta = MVPBoots.getItemMeta();
+		bMeta.setDisplayName("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Boots");
+		MVPBoots.setItemMeta(bMeta);
+		MVPBoots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+		itemList.add(MVPBoots);
 		
-		itemList.add(new ItemStack(Material.IRON_INGOT, 20));
+		itemList.add(new ItemStack(Material.IRON_INGOT, 32));
 		itemList.add(new ItemStack(Material.GOLDEN_APPLE, 3));
-		itemList.add(new ItemStack(Material.DIAMOND));
+		itemList.add(new ItemStack(Material.DIAMOND, 8));
 		
-		ItemStack vip2Key = new ItemStack(Material.TRIPWIRE_HOOK);
-		ItemMeta vk2meta = vip2Key.getItemMeta();
+		ItemStack MVP2Key = new ItemStack(Material.TRIPWIRE_HOOK);
+		ItemMeta vk2meta = MVP2Key.getItemMeta();
 		vk2meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Mythical Key");
 		List<String> lore = new ArrayList<String>();
 		lore.add(ChatColor.GREEN + "A crate key!");
 		vk2meta.setLore(lore);
-		vip2Key.setItemMeta(vk2meta);
-		itemList.add(vip2Key);
+		MVP2Key.setItemMeta(vk2meta);
+		itemList.add(MVP2Key);
 		
 		return itemList;
 	}
@@ -156,10 +156,6 @@ public class ItemBank {
 		ItemMeta bMeta = mBoots.getItemMeta();
 		bMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Mythical Boots");
 		mBoots.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 5);
-		List<String> lore = new ArrayList<String>();
-		lore.add("When you put these boots on,");
-		lore.add("you move faster!");
-		bMeta.setLore(lore);
 		mBoots.setItemMeta(bMeta);
 		itemList.add(mBoots);
 		
@@ -170,9 +166,6 @@ public class ItemBank {
 		mSword.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 5);
 		mSword.addUnsafeEnchantment(Enchantment.FIRE_ASPECT, 2);
 		itemList.add(mSword);
-		
-		itemList.add(new ItemStack(Material.GOLD_INGOT, 72));
-		itemList.add(new ItemStack(Material.DIAMOND, 5));
 		
 		return itemList;
 	}

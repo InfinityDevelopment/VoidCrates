@@ -2,7 +2,6 @@ package me.alphagladiator.crates;
 
 import me.alphagladiator.crates.commands.GiveKeyCommand;
 import me.alphagladiator.crates.commands.SetCrateCommand;
-import me.alphagladiator.crates.listeners.BootsListener;
 import me.alphagladiator.crates.listeners.CrateOpen;
 
 import org.bukkit.Bukkit;
@@ -32,7 +31,6 @@ public static Main instance;
 		
 		//Listener Classes
 		pm.registerEvents(new CrateOpen(), this);
-		pm.registerEvents(new BootsListener(), this);
 		
 		//Command Classes
 		pm.registerEvents(new SetCrateCommand(), this);

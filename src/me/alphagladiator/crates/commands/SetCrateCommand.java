@@ -36,7 +36,7 @@ public class SetCrateCommand implements CommandExecutor, Listener{
 				return true;
 			}
 			if(args.length == 0){
-				p.sendMessage(StringStorage.act + ChatColor.RED + "You must choose for the chest to be Common, VIP, VIP+, or Mythical!");
+				p.sendMessage(StringStorage.act + ChatColor.RED + "You must choose for the chest to be Common, MVP, MVP+, or Mythical!");
 				return true;
 			}
 			if(p.getTargetBlock((Set<Material>) null, 4).getState().getType() == Material.CHEST){
@@ -46,12 +46,12 @@ public class SetCrateCommand implements CommandExecutor, Listener{
 					type = "Common";
 					setChest(type, chest, p);
 					return true;
-				}else if(type.equalsIgnoreCase("VIP")){
-					type = "VIP";
+				}else if(type.equalsIgnoreCase("MVP")){
+					type = "MVP";
 					setChest(type, chest, p);
 					return true;
-				}else if(type.equalsIgnoreCase("VIP+")){
-					type = "VIP+";
+				}else if(type.equalsIgnoreCase("MVP+")){
+					type = "MVP+";
 					setChest(type, chest, p);
 					return true;
 				}else if(type.equalsIgnoreCase("Mythical")){
@@ -87,21 +87,21 @@ public class SetCrateCommand implements CommandExecutor, Listener{
 			meta.setLore(lore);
 			item.setItemMeta(meta);
 			block.getBlockInventory().addItem(item);
-		}else if(type.equals("VIP")){
+		}else if(type.equals("MVP")){
 			ItemStack item = new ItemStack(Material.PAPER);
 			ItemMeta meta = item.getItemMeta();
 			meta.setDisplayName("ID");
 			List<String> lore = new ArrayList<String>();
-			lore.add(ChatColor.BLUE + "VIP Chest");
+			lore.add(ChatColor.BLUE + "MVP Chest");
 			meta.setLore(lore);
 			item.setItemMeta(meta);
 			block.getBlockInventory().addItem(item);
-		}else if(type.equals("VIP+")){
+		}else if(type.equals("MVP+")){
 			ItemStack item = new ItemStack(Material.PAPER);
 			ItemMeta meta = item.getItemMeta();
 			meta.setDisplayName("ID");
 			List<String> lore = new ArrayList<String>();
-			lore.add("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Chest");
+			lore.add("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Chest");
 			meta.setLore(lore);
 			item.setItemMeta(meta);
 			block.getBlockInventory().addItem(item);

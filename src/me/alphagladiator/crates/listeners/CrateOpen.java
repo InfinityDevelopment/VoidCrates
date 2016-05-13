@@ -19,87 +19,95 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class CrateOpen implements Listener{
-	
+
 	@EventHandler
-	public void CrateOpenEvent(PlayerInteractEvent e){
-		Player p = e.getPlayer();
-		if(e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
-			if(e.getClickedBlock().getType().equals(Material.CHEST)){
+	public void onChestOpen(PlayerInteractEvent e){
+		if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
+			if(e.getClickedBlock() != null){
+				if(e.getClickedBlock().getType() != Material.CHEST){
+					return;
+				}
 				Chest chest = (Chest) e.getClickedBlock().getState();
-				Inventory chestInventory = chest.getBlockInventory();
-				for(ItemStack item : chestInventory.getContents()){
-					List<String> lore = item.getItemMeta().getLore();
-					if(item.getItemMeta().hasLore() == true){
-						if(lore.contains(ChatColor.GREEN + "Common Chest")){
-							e.setCancelled(true);
-							openCrate(p, "Common");
+				Player p = e.getPlayer();
+				Inventory chestInventory = chest.getInventory();
+				if(chestInventory.getItem(0) != null){
+					ItemStack item = chestInventory.getItem(0);
+					if(item.getType() == Material.PAPER){
+						if(!item.hasItemMeta()){
 							return;
-						}else if(lore.contains(ChatColor.BLUE + "VIP Chest")){
-							e.setCancelled(true);
-							openCrate(p, "VIP");
-							return;
-						}else if(lore.contains("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Chest")){
-							e.setCancelled(true);
-							openCrate(p, "VIP+");
-							return;
-						}else if(lore.contains(ChatColor.LIGHT_PURPLE + "Mythical Chest")){
-							e.setCancelled(true);
-							openCrate(p, "Mythical");
-							return;
-						}else{ return; }
-					}else{
-						return;
+						}
+						if(item.getItemMeta().hasLore()){
+							List<String> lore = item.getItemMeta().getLore();
+							if(lore.contains(ChatColor.GREEN + "Common Chest")){
+								e.setCancelled(true);
+								openCrate(p, "Common");
+								return;
+							}else if(lore.contains(ChatColor.BLUE + "MVP Chest")){
+								e.setCancelled(true);
+								openCrate(p, "MVP");
+								return;
+							}else if(lore.contains("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Chest")){
+								e.setCancelled(true);
+								openCrate(p, "MVP+");
+								return;
+							}else if(lore.contains(ChatColor.LIGHT_PURPLE + "Mythical Chest")){
+								e.setCancelled(true);
+								openCrate(p, "Mythical");
+								return;
+							}else{ return; }
+						}
 					}
 				}
 			}
 		}
 	}
-	
+
+
 	public static void openCrate(Player p, String type){
-		if(p.getItemInHand().getType().equals(Material.TRIPWIRE_HOOK) && p.getItemInHand().getItemMeta().getLore().contains(ChatColor.GREEN + "A crate key!")){
-			String name = p.getItemInHand().getItemMeta().getDisplayName();
+		if(p.getInventory().getItemInMainHand().getType().equals(Material.TRIPWIRE_HOOK) && p.getInventory().getItemInMainHand().getItemMeta().getLore().contains(ChatColor.GREEN + "A crate key!")){
+			String name = p.getInventory().getItemInMainHand().getItemMeta().getDisplayName();
 			if(name.equals(ChatColor.GREEN + "Common Key") && type.equals("Common")){
 				int itemNum = randomNumber(0, ItemBank.commonList().size());
 				ItemStack item = ItemBank.commonList().get(itemNum);
-				ItemStack handItem = p.getItemInHand();
-				handItem.setAmount(handItem.getAmount() - 1);
-				if(p.getInventory().getItemInHand().getAmount() < 2){
-					handItem.setType(Material.AIR);
+				ItemStack handItem = p.getInventory().getItemInMainHand();
+				if(p.getInventory().getItemInMainHand().getAmount() == 1){
+					p.getInventory().removeItem(p.getInventory().getItemInMainHand());
 				}
-				p.getWorld().playSound(p.getLocation(), Sound.ANVIL_BREAK, 10, 1);
+				handItem.setAmount(handItem.getAmount() - 1);
+				p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_BREAK, 10, 1);
 				p.getInventory().addItem(item);
 				p.sendMessage(StringStorage.act + ChatColor.GREEN + "You opened a Common Chest and recieved your item! Congratulations!");
 				return;
-			}else if(name.equals(ChatColor.BLUE + "VIP Key") && type.equals("VIP")){
-				int itemNum = randomNumber(0, ItemBank.vipList().size());
-				ItemStack item = ItemBank.vipList().get(itemNum);
-				p.getItemInHand().setAmount(p.getItemInHand().getAmount() - 1);
-				if(p.getInventory().getItemInHand().getAmount() < 2){
-					p.getItemInHand().setType(Material.AIR);
+			}else if(name.equals(ChatColor.BLUE + "MVP Key") && type.equals("MVP")){
+				int itemNum = randomNumber(0, ItemBank.MVPList().size());
+				ItemStack item = ItemBank.MVPList().get(itemNum);
+				p.getInventory().getItemInMainHand().setAmount(p.getInventory().getItemInMainHand().getAmount() - 1);
+				if(p.getInventory().getItemInMainHand().getAmount() == 1){
+					p.getInventory().removeItem(p.getInventory().getItemInMainHand());
 				}
-				p.getWorld().playSound(p.getLocation(), Sound.ANVIL_BREAK, 10, 1);
+				p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_BREAK, 10, 1);
 				p.getInventory().addItem(item);
-				p.sendMessage(StringStorage.act + ChatColor.GREEN + "You opened a VIP Chest and recieved your item! Congratulations!");
+				p.sendMessage(StringStorage.act + ChatColor.GREEN + "You opened a MVP Chest and recieved your item! Congratulations!");
 				return;
-			}else if(name.equals("" + ChatColor.BLUE + ChatColor.BOLD + "VIP+ Key") && type.equals("VIP+")){
-				int itemNum = randomNumber(0, ItemBank.vip2List().size());
-				ItemStack item = ItemBank.vip2List().get(itemNum);
-				p.getItemInHand().setAmount(p.getItemInHand().getAmount() - 1);
-				if(p.getInventory().getItemInHand().getAmount() < 2){
-					p.getItemInHand().setType(Material.AIR);
+			}else if(name.equals("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Key") && type.equals("MVP+")){
+				int itemNum = randomNumber(0, ItemBank.MVP2List().size());
+				ItemStack item = ItemBank.MVP2List().get(itemNum);
+				p.getInventory().getItemInMainHand().setAmount(p.getInventory().getItemInMainHand().getAmount() - 1);
+				if(p.getInventory().getItemInMainHand().getAmount() == 1){
+					p.getInventory().removeItem(p.getInventory().getItemInMainHand());
 				}
-				p.getWorld().playSound(p.getLocation(), Sound.ANVIL_BREAK, 10, 1);
+				p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_BREAK, 10, 1);
 				p.getInventory().addItem(item);
-				p.sendMessage(StringStorage.act + ChatColor.GREEN + "You opened a VIP Chest and recieved your item! Congratulations!");
+				p.sendMessage(StringStorage.act + ChatColor.GREEN + "You opened a MVP Chest and recieved your item! Congratulations!");
 				return;
 			}else if(name.equals(ChatColor.LIGHT_PURPLE + "Mythical Key") && type.equals("Mythical")){
 				int itemNum = randomNumber(0, ItemBank.mythicalList().size());
 				ItemStack item = ItemBank.mythicalList().get(itemNum);
-				p.getItemInHand().setAmount(p.getItemInHand().getAmount() - 1);
-				if(p.getInventory().getItemInHand().getAmount() < 2){
-					p.getItemInHand().setType(Material.AIR);
+				p.getInventory().getItemInMainHand().setAmount(p.getInventory().getItemInMainHand().getAmount() - 1);
+				if(p.getInventory().getItemInMainHand().getAmount() == 1){
+					p.getInventory().removeItem(p.getInventory().getItemInMainHand());
 				}
-				p.getWorld().playSound(p.getLocation(), Sound.ANVIL_BREAK, 10, 1);
+				p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ANVIL_BREAK, 10, 1);
 				p.getInventory().addItem(item);
 				p.sendMessage(StringStorage.act + ChatColor.GREEN + "You opened a Mythical Chest and recieved your item! Congratulations!");
 				return;
@@ -112,8 +120,8 @@ public class CrateOpen implements Listener{
 			return;
 		}
 	}
-	
-	private static int randomNumber(int min, int max){
+
+	public static int randomNumber(int min, int max){
 		Random rand = new Random();
 		int randomNum = rand.nextInt(max) + min;
 		return randomNum;
