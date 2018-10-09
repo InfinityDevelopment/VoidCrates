@@ -1,11 +1,8 @@
-package me.alphagladiator.crates.commands;
+package site.infinitydev.crates.commands;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import me.alphagladiator.crates.Main;
-import me.alphagladiator.crates.StringStorage;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -17,6 +14,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import site.infinitydev.crates.Main;
+import site.infinitydev.crates.StringStorage;
 
 public class SetCrateCommand implements CommandExecutor, Listener{
 
@@ -36,7 +36,7 @@ public class SetCrateCommand implements CommandExecutor, Listener{
 				return true;
 			}
 			if(args.length == 0){
-				p.sendMessage(StringStorage.act + ChatColor.RED + "You must choose for the chest to be Common, MVP, MVP+, or Mythical!");
+				p.sendMessage(StringStorage.act + ChatColor.RED + "You must choose for the chest to be Common, Uncommon, Rare, or Mythical!");
 				return true;
 			}
 			if(p.getTargetBlock((Set<Material>) null, 4).getState().getType() == Material.CHEST){
@@ -46,12 +46,12 @@ public class SetCrateCommand implements CommandExecutor, Listener{
 					type = "Common";
 					setChest(type, chest, p);
 					return true;
-				}else if(type.equalsIgnoreCase("MVP")){
-					type = "MVP";
+				}else if(type.equalsIgnoreCase("Uncommon")){
+					type = "Uncommon";
 					setChest(type, chest, p);
 					return true;
-				}else if(type.equalsIgnoreCase("MVP+")){
-					type = "MVP+";
+				}else if(type.equalsIgnoreCase("Rare")){
+					type = "Rare";
 					setChest(type, chest, p);
 					return true;
 				}else if(type.equalsIgnoreCase("Mythical")){
@@ -87,21 +87,21 @@ public class SetCrateCommand implements CommandExecutor, Listener{
 			meta.setLore(lore);
 			item.setItemMeta(meta);
 			block.getBlockInventory().addItem(item);
-		}else if(type.equals("MVP")){
+		}else if(type.equals("Uncommon")){
 			ItemStack item = new ItemStack(Material.PAPER);
 			ItemMeta meta = item.getItemMeta();
 			meta.setDisplayName("ID");
 			List<String> lore = new ArrayList<String>();
-			lore.add(ChatColor.BLUE + "MVP Chest");
+			lore.add(ChatColor.BLUE + "Uncommon Chest");
 			meta.setLore(lore);
 			item.setItemMeta(meta);
 			block.getBlockInventory().addItem(item);
-		}else if(type.equals("MVP+")){
+		}else if(type.equals("Rare")){
 			ItemStack item = new ItemStack(Material.PAPER);
 			ItemMeta meta = item.getItemMeta();
 			meta.setDisplayName("ID");
 			List<String> lore = new ArrayList<String>();
-			lore.add("" + ChatColor.BLUE + ChatColor.BOLD + "MVP+ Chest");
+			lore.add("" + ChatColor.BLUE + ChatColor.BOLD + "Rare Chest");
 			meta.setLore(lore);
 			item.setItemMeta(meta);
 			block.getBlockInventory().addItem(item);

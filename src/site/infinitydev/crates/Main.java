@@ -1,8 +1,8 @@
-package me.alphagladiator.crates;
+package site.infinitydev.crates;
 
-import me.alphagladiator.crates.commands.GiveKeyCommand;
-import me.alphagladiator.crates.commands.SetCrateCommand;
-import me.alphagladiator.crates.listeners.CrateOpen;
+import site.infinitydev.crates.commands.GiveKeyCommand;
+import site.infinitydev.crates.commands.SetCrateCommand;
+import site.infinitydev.crates.listeners.CrateOpen;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
